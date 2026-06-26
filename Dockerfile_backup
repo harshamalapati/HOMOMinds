@@ -1,4 +1,0 @@
-FROM openjdk:17-oracle
-EXPOSE 8088
-COPY target/simpleecommerceapp.jar  simpleecommerceapp.jar
-ENTRYPOINT ["java", "-jar", "simpleecommerceapp.jar"]
