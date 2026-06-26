@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Languages | HOMOMinds</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/homominds.css}"></head><body>
+<nav class="navbar navbar-expand-lg navbar-dark hm-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand" th:href="@{/}">HOMOMinds</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hmNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="hmNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Talents</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" th:href="@{/talents/dance}">Dance</a></li><li><a class="dropdown-item" th:href="@{/talents/music}">Music</a></li><li><a class="dropdown-item" th:href="@{/talents/cooking}">Cooking</a></li><li><a class="dropdown-item" th:href="@{/talents/poetry}">Poetry</a></li><li><a class="dropdown-item" th:href="@{/talents/storytelling}">Storytelling</a></li><li><a class="dropdown-item" th:href="@{/talents/crafts}">Crafts</a></li><li><a class="dropdown-item" th:href="@{/talents/painting}">Painting</a></li><li><a class="dropdown-item" th:href="@{/talents/rangoli}">Rangoli</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Culture</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" th:href="@{/culture/festivals}">Festivals</a></li><li><a class="dropdown-item" th:href="@{/culture/traditions}">Traditions</a></li><li><a class="dropdown-item" th:href="@{/culture/languages}">Languages</a></li><li><a class="dropdown-item" th:href="@{/culture/temples}">Temples</a></li><li><a class="dropdown-item" th:href="@{/culture/heritage}">Heritage</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Community</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" th:href="@{/community/events}">Events</a></li><li><a class="dropdown-item" th:href="@{/community/workshops}">Workshops</a></li><li><a class="dropdown-item" th:href="@{/community/discussions}">Discussions</a></li><li><a class="dropdown-item" th:href="@{/community/contributors}">Contributors</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="hm-page-hero"><h1>Languages</h1><p>Celebrate mother tongue, regional words, poems, proverbs and oral expressions.</p></section><div class="container my-5"><div class="row g-4"><div class="col-lg-8"><div class="info-box"><h3>About Languages</h3><p>Celebrate mother tongue, regional words, poems, proverbs and oral expressions.</p><p>Users can add photos, videos, written notes, tutorials, cultural stories, origin details and learning tips for this section.</p><a class="hm-btn hm-btn-primary" th:href="@{/login}">Add / Share Culture</a></div></div><div class="col-lg-4"><div class="info-box"><h3>Page Actions</h3><p>Use this page for listing posts, creators, tutorials and cultural details.</p><a class="hm-btn hm-btn-outline" th:href="@{/}">Back to Home</a></div></div></div></div><footer class="hm-footer"><h4>HOMOMinds</h4><p>Culture • Creativity • Community • Talent</p><p>© 2026 HOMOMinds. All Rights Reserved.</p></footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script></body></html>

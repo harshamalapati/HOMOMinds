@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>HOMOMinds | User Home</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: #fff7eb;
+            font-family: 'Segoe UI', sans-serif;
+            color: #2b1b1b;
+        }
+
+        .navbar {
+            background: #4b1e1e !important;
+        }
+
+        .navbar-brand {
+            color: #f5d08a !important;
+            font-weight: 800;
+            font-size: 26px;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            color: #f5d08a !important;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(75,30,30,0.88), rgba(75,30,30,0.88)),
+            url('/images/stock-vector-.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 110px 20px 70px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            color: #f5d08a;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 850px;
+            margin: 15px auto;
+            line-height: 1.8;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 55px 0 35px;
+        }
+
+        .section-title h2 {
+            color: #4b1e1e;
+            font-weight: 900;
+            font-size: 38px;
+        }
+
+        .section-title p {
+            color: #665;
+            font-size: 17px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 8px 25px rgba(75, 30, 30, 0.14);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .skill-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            background: #ead8bd;
+        }
+
+        .skill-body {
+            padding: 24px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #f5d08a;
+            color: #4b1e1e;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .skill-body h4 {
+            color: #4b1e1e;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .skill-body p {
+            color: #444;
+            line-height: 1.75;
+            font-size: 15.5px;
+        }
+
+        .btn-cultural {
+            background: #4b1e1e;
+            color: #f5d08a;
+            border-radius: 25px;
+            padding: 9px 24px;
+            font-weight: 800;
+            border: none;
+        }
+
+        .btn-cultural:hover {
+            background: #6b2b2b;
+            color: white;
+        }
+
+        footer {
+            margin-top: 70px;
+            background: #4b1e1e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        footer h4 {
+            color: #f5d08a;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top" data-bs-theme="dark">
+    <div class="col-md-4" th:each="product : ${productList}">
+    <div class="card mb-4 box-shadow">
+
+        <img class="card-img-top"
+             th:src="@{'/images/' + ${product.imageName}}"
+             alt="Skill Image"
+             style="height:230px; object-fit:cover;">
+
+        <div class="card-body">
+
+            <h4 th:text="${product.name}">Skill Name</h4>
+
+            <p class="card-text"
+               th:text="${product.description}">
+                Skill description
+            </p>
+
+            <a th:href="@{/skills/{id}(id=${product.id})}"
+               class="btn btn-success">
+                View Details
+            </a>
+
+        </div>
+    </div>
+</div>
+</nav>
+
+<section class="hero">
+
+    <h1>Welcome to HOMOMinds</h1>
+
+    <p>
+        HOMOMinds is a culture and talent sharing platform where people can explore,
+        learn and preserve traditional arts, creativity, knowledge and the spirit of
+        64 Lalitha Kalaalu.
+    </p>
+
+    <p>
+        Each skill represents a beautiful part of human expression — from music,
+        dance and poetry to cooking, crafts, storytelling and cultural wisdom.
+    </p>
+
+</section>
+
+<main>
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Explore Culture Based Skills</h2>
+            <p>
+                Learn the meaning, importance and cultural value of every traditional skill.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Dynamic DB skills -->
+            <div class="col-md-4" th:each="skill : ${skills}">
+
+                <div class="skill-card">
+
+                    <img class="skill-img"
+                         th:src="${skill.imageUrl}"
+                         alt="Skill Image">
+
+                    <div class="skill-body">
+
+                        <span class="skill-tag"
+                              th:text="${skill.category}">
+                            Traditional Art
+                        </span>
+
+                        <h4 th:text="${skill.name}">
+                            Skill Name
+                        </h4>
+
+                        <p th:text="${skill.shortDescription}">
+                            Skill explanation will appear here.
+                        </p>
+<a class="btn btn-cultural"
+   th:href="@{/skills/{slug}(slug=${skill.slug})}">
+    View Details
+</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Static fallback if DB skills are empty -->
+            <div class="col-md-4" th:if="${skills == null or #lists.isEmpty(skills)}">
+                <div class="skill-card">
+                    <img class="skill-img" src="/images/f4892f40.jpg" alt="Poetry">
+                    <div class="skill-body">
+                        <span class="skill-tag">Literature</span>
+                        <h4>Poetry</h4>
+                        <p>
+                            Poetry is the cultural art of expressing feelings, devotion,
+                            love, pain, wisdom and social thought through rhythmic words.
+                            It preserves language beauty and emotional memory.
+                        </p>
+                        <a class="btn btn-cultural" th:href="@{/skills/poetry}">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" th:if="${skills == null or #lists.isEmpty(skills)}">
+                <div class="skill-card">
+                    <img class="skill-img" src="/images/kalasri_u.jpg" alt="Dance">
+                    <div class="skill-body">
+                        <span class="skill-tag">Performance</span>
+                        <h4>Dance</h4>
+                        <p>
+                            Dance is a sacred expression of body, rhythm and emotion.
+                            It carries stories of gods, festivals, folk life, celebration
+                            and community identity.
+                        </p>
+                        <a class="btn btn-cultural" th:href="@{/skills/dance}">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" th:if="${skills == null or #lists.isEmpty(skills)}">
+                <div class="skill-card">
+                    <img class="skill-img" src="/images/culinary_terms-hero-1-@2x-1.jpg" alt="Cooking">
+                    <div class="skill-body">
+                        <span class="skill-tag">Food Culture</span>
+                        <h4>Traditional Cooking</h4>
+                        <p>
+                            Cooking is more than food preparation. It protects family
+                            recipes, festival dishes, local ingredients, health practices
+                            and the taste of regional culture.
+                        </p>
+                        <a class="btn btn-cultural" th:href="@{/skills/cooking}">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <h4>HOMOMinds</h4>
+    <p>Culture • Creativity • Community • Talent • 64 Lalitha Kalaalu</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
